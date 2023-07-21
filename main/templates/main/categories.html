@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+	<p>
+		Choose a pair of NBA players you wish to compare. Once you've made your selection, simply click 'Submit' to view the results!
+	</p>
+	<form method="post" class ="from-group" style="border: 5px solid; border-color: #fbb445; padding: 10px;">
+		{% csrf_token %}
+		{{form}}
+		<button type="submit" class="btn btn-success">Submit</button>
+	</form>
+
+	<br>
+	<pre class="compare">{{info}}</pre>
+{% endblock %}

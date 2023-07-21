@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+	<p>
+		First, input the precise numbers based on your personalized points league scoring system. (The default numbers are the scoring settings for the Points League in Yahoo Fantasy Sports.) Next, choose a pair of NBA players you wish to compare. Once you've made your selection, simply click 'Submit' to view the results!
+	</p>
+	<div style="border: 5px solid; border-color: #fbb445; padding: 10px;">
+		<h5> Points Scoring System </h5>
+		<form method="post" class ="form-group">
+			{% csrf_token %}
+			{{pointsForm.as_div}}
+			</div>
+			<div style="border: 5px solid; border-color: #fbb445; padding: 5px;">
+				{% csrf_token %}
+				{{playerForm}}
+				<button type="submit" class="btn btn-success">Submit</button>
+			</div>
+		</form>
+
+	<br>
+	<pre class="compare">{{info}}</pre>
+{% endblock %}
